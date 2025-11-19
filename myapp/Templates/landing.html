@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <header>
+        <h1>AI-chatbot</h1>
+        <p>Your personal AI-chatbot</p>
+    </header>
+
+    <div class="card welcome-card">
+        <h2>Welcome to Your Career Journey!</h2>
+        <p>Get personalized career guidance powered by AI. Our chatbot will help you explore career options, choose the right stream, and plan your future.</p>
+        
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-robot"></i>
+                <h3>AI-Powered Guidance</h3>
+                <p>Get instant answers to your career questions</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Stream Selection Help</h3>
+                <p>Make informed decisions about Science, Commerce, or Arts</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-road"></i>
+                <h3>Career Pathways</h3>
+                <p>Explore various career options after Class 10</p>
+            </div>
+        </div>
+        
+        <a href="{% url 'signup' %}" class="btn btn-primary">Get Started</a>
+    </div>
+</div>
+{% endblock %}

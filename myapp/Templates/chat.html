@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <header>
+        <h1>AI-chatbot</h1>
+        <p>Your personal AI-chatbot</p>
+    </header>
+
+    <div class="card prompts-section">
+        <h2>Hello, {{ student_name }}!</h2>
+        <p>Here are some career-related prompts to get you started:</p>
+        
+        <div class="prompts-grid">
+            {% for prompt in prompts %}
+            <div class="prompt-card" data-prompt="{{ prompt.text }}">
+                <i class="fas {{ prompt.icon }}"></i>
+                <h3>{{ prompt.text }}</h3>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- Chatbot Container -->
+<div class="chatbot-container">
+    <div class="chatbot-icon" id="chatbot-icon">
+        <i class="fas fa-robot"></i>
+    </div>
+    
+    <div class="chat-window" id="chat-window">
+        <div class="chat-header">
+            <h3>CareerGuide AI</h3>
+            <button class="close-btn" id="close-chat">&times;</button>
+        </div>
+        
+        <div class="chat-messages" id="chat-messages">
+            <!-- Messages will be added here dynamically -->
+        </div>
+        
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Type your career question here...">
+            <button class="send-btn" id="send-btn">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    const chatApiUrl = "{% url 'chat_api' %}";
+    const studentName = "{{ student_name }}";
+</script>
+<script src="{% static 'js/chat.js' %}"></script>
+{% endblock %}
